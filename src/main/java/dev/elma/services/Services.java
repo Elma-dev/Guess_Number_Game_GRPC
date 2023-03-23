@@ -13,7 +13,8 @@ public class Services extends gameGrpc.gameImplBase{
         return new StreamObserver<Game.guessMsg>() {
             @Override
             public void onNext(Game.guessMsg guessMsg) {
-                System.out.println(guessMsg.getUsername()+" "+guessMsg.getNumber()+" "+number);
+                System.out.println(guessMsg.toString());
+                System.out.println(number);
 
                 Game.repMsg repMsg = Game.repMsg.newBuilder().setContent("The number You send is "+guessMsg.getNumber()).build();
                 responseObserver.onNext(repMsg);
