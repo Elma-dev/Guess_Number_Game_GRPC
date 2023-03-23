@@ -14,7 +14,7 @@ public class Services extends gameGrpc.gameImplBase{
             @Override
             public void onNext(Game.guessMsg guessMsg) {
                 System.out.println(guessMsg.getUsername()+" "+guessMsg.getNumber());
-                Game.repMsg repMsg = Game.repMsg.newBuilder().setContent("The number You send is").build();
+                Game.repMsg repMsg = Game.repMsg.newBuilder().setContent("The number You send is "+guessMsg.getNumber()).build();
                 responseObserver.onNext(repMsg);
             }
 
