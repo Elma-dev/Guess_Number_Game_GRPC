@@ -1,4 +1,4 @@
-package org.example;
+package dev.elma;
 
 public class Main {
     public static void main(String[] args) {
