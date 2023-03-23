@@ -6,7 +6,7 @@ import io.grpc.stub.StreamObserver;
 
 public class Services extends gameGrpc.gameImplBase{
 
-    double number=Math.random()*10;
+    double number=Math.random()*1000;
 
     @Override
     public StreamObserver<Game.guessMsg> requestReplay(StreamObserver<Game.repMsg> responseObserver) {
