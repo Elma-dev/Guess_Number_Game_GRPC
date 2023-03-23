@@ -13,11 +13,20 @@ public class Services extends gameGrpc.gameImplBase{
         return new StreamObserver<Game.guessMsg>() {
             @Override
             public void onNext(Game.guessMsg guessMsg) {
-                System.out.println(guessMsg.toString()+" "+guessMsg.getNumber());
                 System.out.println(number);
 
+                String player=guessMsg.getUsername();
+                int nbr=(int)(guessMsg.getNumber());
+                Game.repMsg repMsg;
 
-                Game.repMsg repMsg = Game.repMsg.newBuilder().setContent("The number You send is "+guessMsg.getNumber()).build();
+                if(nbr==number){
+                    repMsg=Game.repMsg.newBuilder().setContent("You WIIIN✔✔✔ ").build();
+                }
+                else if(nbr<number){
+                    repMsg=Game.repMsg.newBuilder().setContent("Greater than "+nbr).build();
+                }else{
+                    repMsg=Game.repMsg.newBuilder().setContent("Less than "+nbr).build();
+                }
                 responseObserver.onNext(repMsg);
             }
 
