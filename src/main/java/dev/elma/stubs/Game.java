@@ -31,10 +31,10 @@ public final class Game {
         getUsernameBytes();
 
     /**
-     * <code>int64 number = 2;</code>
+     * <code>double number = 2;</code>
      * @return The number.
      */
-    long getNumber();
+    double getNumber();
   }
   /**
    * Protobuf type {@code guessMsg}
@@ -88,9 +88,9 @@ public final class Game {
               username_ = s;
               break;
             }
-            case 16: {
+            case 17: {
 
-              number_ = input.readInt64();
+              number_ = input.readDouble();
               break;
             }
             default: {
@@ -162,12 +162,12 @@ public final class Game {
     }
 
     public static final int NUMBER_FIELD_NUMBER = 2;
-    private long number_;
+    private double number_;
     /**
-     * <code>int64 number = 2;</code>
+     * <code>double number = 2;</code>
      * @return The number.
      */
-    public long getNumber() {
+    public double getNumber() {
       return number_;
     }
 
@@ -188,8 +188,8 @@ public final class Game {
       if (!getUsernameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
       }
-      if (number_ != 0L) {
-        output.writeInt64(2, number_);
+      if (number_ != 0D) {
+        output.writeDouble(2, number_);
       }
       unknownFields.writeTo(output);
     }
@@ -203,9 +203,9 @@ public final class Game {
       if (!getUsernameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
       }
-      if (number_ != 0L) {
+      if (number_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, number_);
+          .computeDoubleSize(2, number_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -224,8 +224,9 @@ public final class Game {
 
       if (!getUsername()
           .equals(other.getUsername())) return false;
-      if (getNumber()
-          != other.getNumber()) return false;
+      if (java.lang.Double.doubleToLongBits(getNumber())
+          != java.lang.Double.doubleToLongBits(
+              other.getNumber())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -241,7 +242,7 @@ public final class Game {
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getNumber());
+          java.lang.Double.doubleToLongBits(getNumber()));
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -377,7 +378,7 @@ public final class Game {
         super.clear();
         username_ = "";
 
-        number_ = 0L;
+        number_ = 0D;
 
         return this;
       }
@@ -459,7 +460,7 @@ public final class Game {
           username_ = other.username_;
           onChanged();
         }
-        if (other.getNumber() != 0L) {
+        if (other.getNumber() != 0D) {
           setNumber(other.getNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -567,32 +568,32 @@ public final class Game {
         return this;
       }
 
-      private long number_ ;
+      private double number_ ;
       /**
-       * <code>int64 number = 2;</code>
+       * <code>double number = 2;</code>
        * @return The number.
        */
-      public long getNumber() {
+      public double getNumber() {
         return number_;
       }
       /**
-       * <code>int64 number = 2;</code>
+       * <code>double number = 2;</code>
        * @param value The number to set.
        * @return This builder for chaining.
        */
-      public Builder setNumber(long value) {
+      public Builder setNumber(double value) {
         
         number_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 number = 2;</code>
+       * <code>double number = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearNumber() {
         
-        number_ = 0L;
+        number_ = 0D;
         onChanged();
         return this;
       }
@@ -1235,7 +1236,7 @@ public final class Game {
   static {
     java.lang.String[] descriptorData = {
       "\n\ngame.proto\",\n\010guessMsg\022\020\n\010username\030\001 \001" +
-      "(\t\022\016\n\006number\030\002 \001(\003\"\031\n\006repMsg\022\017\n\007content\030" +
+      "(\t\022\016\n\006number\030\002 \001(\001\"\031\n\006repMsg\022\017\n\007content\030" +
       "\001 \001(\t2/\n\004game\022\'\n\rrequestReplay\022\t.guessMs" +
       "g\032\007.repMsg(\0010\001B\020\n\016dev.elma.stubsb\006proto3"
     };

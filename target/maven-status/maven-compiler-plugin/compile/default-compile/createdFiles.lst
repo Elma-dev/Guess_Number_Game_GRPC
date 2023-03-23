@@ -9,10 +9,12 @@ dev\elma\stubs\Game.class
 dev\elma\stubs\gameGrpc$gameStub.class
 dev\elma\Main.class
 dev\elma\stubs\gameGrpc$gameImplBase.class
+dev\elma\services\Services.class
 dev\elma\stubs\gameGrpc$gameFileDescriptorSupplier.class
 dev\elma\stubs\gameGrpc$MethodHandlers.class
 dev\elma\stubs\Game$repMsgOrBuilder.class
 dev\elma\stubs\Game$repMsg.class
+dev\elma\services\Services$1.class
 dev\elma\stubs\Game$guessMsg.class
 dev\elma\stubs\Game$guessMsg$1.class
 dev\elma\stubs\Game$guessMsg$Builder.class
