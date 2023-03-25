@@ -12,6 +12,7 @@ dev\elma\stubs\gameGrpc$gameImplBase.class
 dev\elma\services\Services.class
 dev\elma\stubs\gameGrpc$gameFileDescriptorSupplier.class
 dev\elma\stubs\gameGrpc$MethodHandlers.class
+dev\elma\players\player.class
 dev\elma\stubs\Game$repMsgOrBuilder.class
 dev\elma\stubs\Game$repMsg.class
 dev\elma\services\Services$1.class

@@ -8,6 +8,8 @@ import io.grpc.stub.StreamObserver;
 
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 public class player {
     public static void main(String[] args) {
         ManagedChannel localhost = ManagedChannelBuilder.forAddress("localhost", 2001).usePlaintext().build();
@@ -27,17 +29,21 @@ public class player {
 
             @Override
             public void onCompleted() {
+                exit(0);
 
             }
         });
 
         String username;
+        System.out.print("Username:");
         Scanner scanner = new Scanner(System.in);
         username=scanner.next();
 
 
         while(true) {
-            Game.guessMsg build = Game.guessMsg.newBuilder().setUsername(username).build();
+            System.out.println("Guess Number: ");
+            int number=new Scanner(System.in).nextInt();
+            Game.guessMsg build = Game.guessMsg.newBuilder().setUsername(username).setNumber((double) number).build();
             guessMsgStreamObserver.onNext(build);
         }
 

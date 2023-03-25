@@ -21,13 +21,17 @@ public class Services extends gameGrpc.gameImplBase{
 
                 if(nbr==number){
                     repMsg=Game.repMsg.newBuilder().setContent("You WIIIN✔✔✔ ").build();
+                    responseObserver.onNext(repMsg);
+                    responseObserver.onCompleted();
                 }
                 else if(nbr<number){
                     repMsg=Game.repMsg.newBuilder().setContent("Greater than "+nbr).build();
+                    responseObserver.onNext(repMsg);
                 }else{
                     repMsg=Game.repMsg.newBuilder().setContent("Less than "+nbr).build();
+                    responseObserver.onNext(repMsg);
                 }
-                responseObserver.onNext(repMsg);
+
             }
 
             @Override
