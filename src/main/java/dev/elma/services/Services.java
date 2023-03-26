@@ -7,7 +7,7 @@ import io.grpc.stub.StreamObserver;
 import java.util.HashMap;
 
 public class Services extends gameGrpc.gameImplBase{
-
+    //Secret number...
     int number=(int)(Math.random()*1000);
     HashMap<String,StreamObserver<Game.repMsg>> players=new HashMap<>();
     @Override
@@ -49,12 +49,10 @@ public class Services extends gameGrpc.gameImplBase{
                 }
 
             }
-
             @Override
             public void onError(Throwable throwable) {
 
             }
-
             @Override
             public void onCompleted() {
 
