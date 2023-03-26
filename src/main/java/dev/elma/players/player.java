@@ -5,7 +5,6 @@ import dev.elma.stubs.gameGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
-
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -19,18 +18,13 @@ public class player {
             public void onNext(Game.repMsg repMsg) {
                 String content = repMsg.getContent();
                 System.out.println(content);
-
             }
-
             @Override
-            public void onError(Throwable throwable) {
-
-            }
+            public void onError(Throwable throwable) {}
 
             @Override
             public void onCompleted() {
                 exit(0);
-
             }
         });
 
@@ -39,15 +33,11 @@ public class player {
         Scanner scanner = new Scanner(System.in);
         username=scanner.next();
 
-
         while(true) {
             System.out.println("Guess Number: ");
             int number=new Scanner(System.in).nextInt();
             Game.guessMsg build = Game.guessMsg.newBuilder().setUsername(username).setNumber((double) number).build();
             guessMsgStreamObserver.onNext(build);
         }
-
-
-
     }
 }
